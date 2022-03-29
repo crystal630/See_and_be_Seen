@@ -5,3 +5,9 @@ html, body {
 canvas {
   display: block;
 }
+
+#heading{
+  width: 25%;
+	margin: 0 auto;
+	padding: 10px;
+}
