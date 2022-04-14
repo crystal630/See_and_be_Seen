@@ -1,275 +1,156 @@
 
-// set the dimensions and margins of the graph
-var margin = {top: 40, right: 150, bottom: 60, left: 30},
-    width = 1500 - margin.left - margin.right,
-    height = 920 - margin.top - margin.bottom;
+  var svg = d3.select("#my_dataviz")
+    .append("svg")
+    .attr("width", 2388)
+    .attr("height", 1668)
+    .append("g")
 
-// append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+  svg.append('svg:image')
+    .attr('xlink:href', 'bg.png')
+    .attr("width",2388)
+    .attr("height", 1668)
+    .attr("x", 0)
+    .attr("y", 0);
 
-//Read the data
-d3.json("test.json", function(data) {
+  svg.append("image")
+    .attr("xlink:href","gifs/c1.gif")
+    .attr("x", 1550)
+    .attr("y", 720)
+    .attr("width",100)
+    .attr("height",100);
 
-  // ---------------------------//
-  //       AXIS  AND SCALE      //
-  // ---------------------------//
+    svg.append("image")
+      .attr("xlink:href","gifs/c2.gif")
+      .attr("x", 450)
+      .attr("y", 450)
+      .attr("width",200)
+      .attr("height",200);
 
-  // // Add X axis
-  // var x = d3.scaleLinear()
-  //   .domain([0, 45000])
-  //   .range([ 0, width ]);
-  // svg.append("g")
-  //   .attr("transform", "translate(0," + height + ")")
-  //   .call(d3.axisBottom(x).ticks(3));
-  //
-  // // Add X axis label:
-  // svg.append("text")
-  //     .attr("text-anchor", "end")
-  //     .attr("x", width)
-  //     .attr("y", height+50 )
-  //     .text("Gdp per Capita");
-  //
-  // // Add Y axis
-  // var y = d3.scaleLinear()
-  //   .domain([35, 90])
-  //   .range([ height, 0]);
-  // svg.append("g")
-  //   .call(d3.axisLeft(y));
-  //
-  // // Add Y axis label:
-  // svg.append("text")
-  //     .attr("text-anchor", "end")
-  //     .attr("x", 0)
-  //     .attr("y", -20 )
-  //     .text("Life expectancy")
-  //     .attr("text-anchor", "start")
+    svg.append("image")
+        .attr("xlink:href","gifs/c2.gif")
+        .attr("x", 1450)
+        .attr("y", 1050)
+        .attr("width",200)
+        .attr("height",200);
 
-  // // Add a scale for bubble size
-  // var z = d3.scaleSqrt()
-  //   .domain([200000, 1310000000])
-  //   .range([ 2, 30]);
-  //
-  // // // Add a scale for bubble color
-  // // var myColor = d3.scaleOrdinal()
-  // //   .domain(["Asia", "Europe", "Americas", "Africa", "Oceania"])
-  // //   .range(d3.schemeSet1);
-  //
-  //
-  // // ---------------------------//
-  // //      TOOLTIP               //
-  // // ---------------------------//
-  //
-  // // -1- Create a tooltip div that is hidden by default:
-  // var tooltip = d3.select("#my_dataviz")
-  //   .append("div")
-  //     .style("opacity", 0)
-  //     .attr("class", "tooltip")
-  //     .style("background-color", "black")
-  //     .style("border-radius", "5px")
-  //     .style("padding", "10px")
-  //     .style("color", "white")
-  //
-  // // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
-  // var showTooltip = function(d) {
-  //   tooltip
-  //     .transition()
-  //     .duration(200)
-  //   tooltip
-  //     .style("opacity", 1)
-  //     .html("Country: " + d.country)
-  //     .style("left", (d3.mouse(this)[0]+30) + "px")
-  //     .style("top", (d3.mouse(this)[1]+30) + "px")
-  // }
-  // var moveTooltip = function(d) {
-  //   tooltip
-  //     .style("left", (d3.mouse(this)[0]+30) + "px")
-  //     .style("top", (d3.mouse(this)[1]+30) + "px")
-  // }
-  // var hideTooltip = function(d) {
-  //   tooltip
-  //     .transition()
-  //     .duration(200)
-  //     .style("opacity", 0)
-  // }
-  //
-  //
-  // // ---------------------------//
-  // //       HIGHLIGHT GROUP      //
-  // // ---------------------------//
-  //
-  // // What to do when one group is hovered
-  // var highlight = function(d){
-  //   // reduce opacity of all groups
-  //   d3.selectAll(".bubbles").style("opacity", .05)
-  //   // expect the one that is hovered
-  //   d3.selectAll("."+d).style("opacity", 1)
-  // }
-  //
-  // // And when it is not hovered anymore
-  // var noHighlight = function(d){
-  //   d3.selectAll(".bubbles").style("opacity", 1)
-  // }
+    svg.append("image")
+      .attr("xlink:href","gifs/c1m.gif")
+      .attr("x", 690)
+      .attr("y", 670)
+      .attr("width",1000)
+      .attr("height",380)
 
+  d3.json("https://organized-alluring-nerine.glitch.me/posts", function(data) {
 
-  // ---------------------------//
-  //       CIRCLES              //
-  // ---------------------------//
-
-  // Add dots
-var test =   svg.append('g')
+var test = svg.append('g')
     .selectAll("dot")
     .data(data)
     .enter();
 
-    // test.append("rect")
-    //   // .attr("class", function(d) { return "bubbles " + d.continent })
-    //   .attr("x", function (d) { return d.id*100; } )
-    //   .attr("y", 50)
-    //   .attr("width", 50)
-    //   .attr("height", 100 )
-    //   .style("fill", 255 )
-
     test.append("image")
       // .attr("class", function(d) { return "bubbles " + d.continent })
-      .attr("xlink:href","gifs/house1.gif")
-      .attr("x", function (d) { return d.id*300; } )
-      .attr("y", 50)
-      .attr("width", 300)
-      .attr("height", 300 )
-    //  .style("fill", 255 )
+      .attr("xlink:href","gifs/h1.gif")
+      .attr("x", function(d){
+        if(d.id<=6){
+          if(d.id%3==0){
+            return 1094-300-d.likes.length*10;
+          }else if(d.id==4||d.id==5){
+            return 1094+300-d.likes.length*10;
+          }else{
+            return 1094-d.likes.length*10;
+        }
+      }else if( d.id>6&&d.id<=12){
+          return 594 + 200*(d.id-7);
+        }else if(d.id>12&&d.id<=18){
+          return 594 + 200*(d.id-13);
+        }})
+      .attr("y", function(d){
+        if(d.id<=6){
+          if(d.id%2==1||d.id==1){
+            return 684-d.likes.length*10;
+          }else{
+          return 684+80-d.likes.length*10;
+        }
+      }else if( d.id>6&&d.id<=18){
+        if(d.id<13){
+          return 684-170-d.likes.length*10;
+        }else{
+          return 684+270-d.likes.length*10;
+        }
+        }})
+      .attr("width", function(d){return 200+d.likes.length*10})
+      .attr("height", function(d){return 200+d.likes.length*10});
+      // .attr("width", 200)
+      // .attr("height", 200);
 
-   test
-    .append("text")
-    .attr("x",function (d) { return d.id*300; } )
-    .attr("y",325 )
-    .text(function(d){ return d.username})
-    .style("font-size", 24)
-    .attr('alignment-baseline', 'middle')
 
-    test
-     .append("text")
-     .attr("x",function (d) { return d.id*300+80; } )
-     .attr("y",145 )
-     .text(function(d){ return d.id})
-     .style("font-size", 24)
-     .attr('alignment-baseline', 'middle')
+      // test.append("image")
+      //   .attr("xlink:href","gifs/h1.gif")
+      //   .attr("x", 1094)
+      //   .attr("y", 684)
+      //   .attr("width", function(d){return 200+d.likes.length*10})
+      //   .attr("height", 200);
 
      test
       .append("text")
-      .attr("x",function (d) { return d.id*300; } )
-      .attr("y",365 )
-      .text("Level 1")
-      .style("font-size", 16)
-      .attr('alignment-baseline', 'middle')
+      .attr("x", function(d){
+        if(d.id<=6){
+          if(d.id%3==0){
+            return 1094-300-d.likes.length*10+120;
+          }else if(d.id==4||d.id==5){
+            return 1094+300-d.likes.length*10+120;
+          }else{
+            return 1094-d.likes.length*10+120;
+        }
+      }else if( d.id>6&&d.id<=12){
+          return 594 + 200*(d.id-7)+120;
+        }else if(d.id>12&&d.id<=18){
+          return 594 + 200*(d.id-13)+120;
+        }})
+      .attr("y",function(d){
+        if(d.id<=6){
+        if(d.id%2==1||d.id==1){
+          return 684-d.likes.length*10+60;
+        }else{
+        return 684+80-d.likes.length*10+60;
+      }
+    }else if( d.id>6&&d.id<=18){
+      if(d.id<13){
+        return 684-120-d.likes.length*10;
+      }else{
+        return 684+320-d.likes.length*10;
+      }
+      }})
+     .text(function(d){ return d.username})
+     .style("font-size", 24)
+     .attr('alignment-baseline', 'middle');
+   // //
+   //   test
+   //    .append("text")
+   //    .attr("x", )
+   //    .attr("y",)
+   //    .text("Level 1")
+   //    .style("font-size", 8)
+   //    .attr('alignment-baseline', 'middle');
+   // //
+   //   test
+   //     .append("rect")
+   //     .attr("x",
+   //     .attr("y", )
+   //     .attr("width", 50)
+   //     .attr("height", 8 )
+   //     .style("fill", "none" )
+   //     .style("stroke", "black" );
+   // //
+   // //
+   //  test
+   //    .append("rect")
+   //    .attr("x", )
+   //    .attr("y", )
+   //    .attr("width", function(d){return d.likes.length*3})
+   //    .attr("height", 8 )
+   //    .style("fill", 255 );
+   // //
 
-     test
-       .append("rect")
-       .attr("x", function (d) { return d.id*300+50; } )
-       .attr("y", 350)
-       .attr("width", 150)
-       .attr("height", 20 )
-       .style("fill", "none" )
-       .style("stroke", "black" )
 
-
-    test
-      .append("rect")
-      .attr("x", function (d) { return d.id*300+50; } )
-      .attr("y", 350)
-      .attr("width", function(d){return d.likes.length*3})
-      .attr("height", 20 )
-      .style("fill", 255 )
-
-
-    // -3- Trigger the functions for hover
-    // .on("mouseover", showTooltip )
-    // .on("mousemove", moveTooltip )
-    // .on("mouseleave", hideTooltip )
-
-
-
-    // ---------------------------//
-    //       LEGEND              //
-    // ---------------------------//
-
-    // Add legend: circles
-  //   var valuesToShow = [10000000, 100000000, 1000000000]
-  //   var xCircle = 390
-  //   var xLabel = 440
-  //   svg
-  //     .selectAll("legend")
-  //     .data(valuesToShow)
-  //     .enter()
-  //     .append("circle")
-  //       .attr("cx", xCircle)
-  //       .attr("cy", function(d){ return height - 100 - z(d) } )
-  //       .attr("r", function(d){ return z(d) })
-  //       .style("fill", "none")
-  //       .attr("stroke", "black")
-  //
-  //   // Add legend: segments
-  //   svg
-  //     .selectAll("legend")
-  //     .data(valuesToShow)
-  //     .enter()
-  //     .append("line")
-  //       .attr('x1', function(d){ return xCircle + z(d) } )
-  //       .attr('x2', xLabel)
-  //       .attr('y1', function(d){ return height - 100 - z(d) } )
-  //       .attr('y2', function(d){ return height - 100 - z(d) } )
-  //       .attr('stroke', 'black')
-  //       .style('stroke-dasharray', ('2,2'))
-  //
-  //   // Add legend: labels
-  //   svg
-  //     .selectAll("legend")
-  //     .data(valuesToShow)
-  //     .enter()
-  //     .append("text")
-  //       .attr('x', xLabel)
-  //       .attr('y', function(d){ return height - 100 - z(d) } )
-  //       .text( function(d){ return d/1000000 } )
-  //       .style("font-size", 10)
-  //       .attr('alignment-baseline', 'middle')
-  //
-  //   // Legend title
-  //   svg.append("text")
-  //     .attr('x', xCircle)
-  //     .attr("y", height - 100 +30)
-  //     .text("Population (M)")
-  //     .attr("text-anchor", "middle")
-  //
-  //   // Add one dot in the legend for each name.
-  //   var size = 20
-  //   var allgroups = ["Asia", "Europe", "Americas", "Africa", "Oceania"]
-  //   svg.selectAll("myrect")
-  //     .data(allgroups)
-  //     .enter()
-  //     .append("circle")
-  //       .attr("cx", 390)
-  //       .attr("cy", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
-  //       .attr("r", 7)
-  //       .style("fill", function(d){ return myColor(d)})
-  //       .on("mouseover", highlight)
-  //       .on("mouseleave", noHighlight)
-  //
-  //   // Add labels beside legend dots
-  //   svg.selectAll("mylabels")
-  //     .data(allgroups)
-  //     .enter()
-  //     .append("text")
-  //       .attr("x", 390 + size*.8)
-  //       .attr("y", function(d,i){ return i * (size + 5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
-  //       .style("fill", function(d){ return myColor(d)})
-  //       .text(function(d){ return d})
-  //       .attr("text-anchor", "left")
-  //       .style("alignment-baseline", "middle")
-  //       .on("mouseover", highlight)
-  //       .on("mouseleave", noHighlight)
   })
