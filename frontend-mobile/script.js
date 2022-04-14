@@ -242,7 +242,7 @@ async function list() {
         let post = {
           username: document.getElementsByClassName('name').value,
           text: rC.value,
-          parent: 1
+          parent: lId
         };
 
         let response = await fetch(base_url + '/post', {
