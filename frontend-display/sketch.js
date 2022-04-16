@@ -33,13 +33,6 @@
         .attr("width",200)
         .attr("height",200);
 
-    svg.append("image")
-      .attr("xlink:href","gifs/c1m.gif")
-      .attr("x", 690)
-      .attr("y", 670)
-      .attr("width",1000)
-      .attr("height",380)
-
   d3.json("https://organized-alluring-nerine.glitch.me/posts", function(data) {
 
 var test = svg.append('g')
@@ -151,6 +144,6 @@ var test = svg.append('g')
    //    .attr("height", 8 )
    //    .style("fill", 255 );
    // //
-
-
   })
+
+  
