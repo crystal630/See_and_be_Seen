@@ -42,7 +42,7 @@ var test = svg.append('g')
 
     test.append("image")
       // .attr("class", function(d) { return "bubbles " + d.continent })
-      .attr("xlink:href","gifs/h1.gif")
+      .attr("xlink:href","gifs/h2.gif")
       .attr("x", function(d){
         if(d.id<=6){
           if(d.id%3==0){
@@ -145,5 +145,3 @@ var test = svg.append('g')
    //    .style("fill", 255 );
    // //
   })
-
-  

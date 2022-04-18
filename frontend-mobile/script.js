@@ -2,18 +2,7 @@ let base_url = 'https://organized-alluring-nerine.glitch.me';
 let newId = 1;
 
 //get time
-function submitDate(){
 
-  var date = new Date();
-
-    let year = date.getFullYear().toString();
-    let mon =date.getMonth().toString();
-    let d =date.getDate().toString();
-    let h =date.getHours().toString();
-    let min =  date.getMinutes().toString();
-    let sec =  date.getSeconds().toString();
-    return year + "-" + mon + "-" + d + " " + h + ":" + min + ":" + sec;
-}
 
 document.getElementById('comS').addEventListener('click', getData);
 
@@ -39,6 +28,7 @@ async function getData(){
 //SUBMIT A NEW COMMENT
 document.getElementById('comS').addEventListener('click', async function(){
 
+
   let post = {
     username: document.getElementById('userName').value,
     text: document.getElementById('search').value
@@ -60,6 +50,21 @@ console.log(posts.length);
   container.innerHTML = '';
 
   for (post of posts) {
+
+    function submitDate(){
+
+      var date = new Date(post.created_at);
+
+        let year = date.getFullYear().toString();
+        let mon =date.getMonth().toString();
+        let d =date.getDate().toString();
+        let h =date.getHours().toString();
+        let min =  date.getMinutes().toString();
+        let sec =  date.getSeconds().toString();
+        return year + "-" + mon + "-" + d + " " + h + ":" + min + ":" + sec;
+    }
+
+
     let m = document.createElement('div');
     m.className = 'item';
 
@@ -272,6 +277,21 @@ console.log(posts.length);
   container.innerHTML = '';
 
   for (post of posts) {
+
+
+    function submitDate(){
+
+      var date = new Date(post.created_at);
+
+        let year = date.getFullYear().toString();
+        let mon =date.getMonth().toString();
+        let d =date.getDate().toString();
+        let h =date.getHours().toString();
+        let min =  date.getMinutes().toString();
+        let sec =  date.getSeconds().toString();
+        return year + "-" + mon + "-" + d + " " + h + ":" + min + ":" + sec;
+    }
+
     let m = document.createElement('div');
     m.className = 'item';
     document.getElementById("list").appendChild(m);
