@@ -86,7 +86,7 @@ body {
 }
 
 #hashtag{
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -129,7 +129,7 @@ body {
 
 .grid .item .avatar .replyD{
   width: 245px;
-  
+
   padding: 2px 10px;
   margin-left: 10px;
 	font-size: 12px;
