@@ -1,9 +1,9 @@
-let floatX=0
+let houses;
   var svg = d3.select("#my_dataviz")
     .append("svg")
     .attr("width", 2388)
     .attr("height", 1668)
-    .append("g")
+  ;
 
   svg.append('svg:image')
     .attr('xlink:href', 'bg.png')
@@ -25,110 +25,171 @@ let floatX=0
 //
 //
 //   })
+function size(d){
+  if(d.likes.length>=0&&d.likes.length<5){
+    return 200+d.likes.length*10
+  }else if(d.likes.length>=20&&d.likes.length<25){
+    return 200+(d.likes.length-20)*10
+  }else if(d.likes.length>=36&&d.likes.length<38){
+    return 200+(d.likes.length-36)*10
+  }else{
+    return 250;
+  }
+}
+
+function positionX(d){
+  if(d.id<=6){
+    if(d.id%3==0){
+      return 1094-300;
+    }else if(d.id==4||d.id==5){
+      return 1094+300;
+    }else{
+      return 1094;
+  }
+}else if( d.id>6&&d.id<=12){
+    return 594 + 200*(d.id-7);
+  }else if(d.id>12&&d.id<=18){
+    return 594 + 200*(d.id-13);
+  }else if(d.id=19||d.id<=21){
+    return 594;
+  }else if(d.id=20||d.id<=22){
+    return 1594;
+  }else if(d.id>22&&d.id<=32){
+    return 294 + 200*(d.id-23);
+  }else if(d.id>32&&d.id<=42){
+    return 294 + 200*(d.id-33);
+  }
+}
+
+function positionY(d){
+  if(d.id<=6){
+    if(d.id%2==1||d.id==1){
+      return 684;
+    }else{
+      return 684+80;
+    }
+  }else if(d.id>6&&d.id<=18){
+    if(d.id<13){
+      return 684-170;
+    }else{
+      return 684+270;
+    }
+  }
+else if(d.id==19||d.id==20){
+    return 684+30;
+  }
+  else if(d.id==21||d.id==22){
+    return 684+230;
+  }
+  else if(d.id>22&&d.id<=32){
+    return 314;
+  }else if(d.id>32&&d.id<=42){
+      return 1314;
+  }else if(d.id>42&&d.id<=46){
+      return 314+(d.id-42)*200;
+  }else if(d.id>46&&d.id<=50){
+      return 314+(d.id-46)*200;
+  }
+}
+
+function positionLikeX(d){
+      if(d.likes.length>0){
+        if(d.id<=6){
+          if(d.id%3==0){
+            return 794;
+          }else if(d.id==4||d.id==5){
+            return 1394;
+          }else{
+            return 1094;
+        }
+      }else if( d.id>6&&d.id<=12){
+          return 594 + 200*(d.id-7);
+        }else if(d.id>12&&d.id<=18){
+          return 594 + 200*(d.id-13);
+        }else if(d.id=19||d.id<=21){
+          return 594;
+        }else if(d.id=20||d.id<=22){
+          return 1594;
+        }else if(d.id>22&&d.id<=32){
+          return 294 + 200*(d.id-23);
+        }else if(d.id>32&&d.id<=42){
+          return 294 + 200*(d.id-33);
+        }
+      }else{
+        return 100;
+      }
+    }
+
+function positionLikeY(d){
+      if(d.likes.length>0){
+        if(d.id<=6){
+          if(d.id%2==1||d.id==1){
+            return 684;
+          }else{
+            return 684+80;
+          }
+        }else if(d.id>6&&d.id<=18){
+          if(d.id<13){
+            return 684-170;
+          }else{
+            return 684+270;
+          }
+        }
+      else if(d.id==19||d.id==20){
+          return 684+30;
+        }
+        else if(d.id==21||d.id==22){
+          return 684+230;
+        }
+        else if(d.id>22&&d.id<=32){
+          return 314;
+        }else if(d.id>32&&d.id<=42){
+            return 1314;
+        }else if(d.id>42&&d.id<=46){
+            return 314+(d.id-42)*200;
+        }else if(d.id>46&&d.id<=50){
+            return 314+(d.id-46)*200;
+        }
+      }else{
+        return 100;
+      }
+
+    }
+
 
 
 function getData(){
-
+  var graphGroup = svg.append('g').attr("class","graphGroup");
   d3.json("https://organized-alluring-nerine.glitch.me/posts", function(data) {
-    var test = svg.append('g')
-        .selectAll("dot")
-        .data(data)
-        .enter();
-
-    function size(d){
-      if(d.likes.length>=0&&d.likes.length<5){
-        return 200+d.likes.length*10
-      }else if(d.likes.length>=20&&d.likes.length<25){
-        return 200+(d.likes.length-20)*10
-      }else if(d.likes.length>=36&&d.likes.length<38){
-        return 200+(d.likes.length-36)*10
-      }else{
-        return 250;
-      }
-    }
-
-    function positionX(d){
-      if(d.id<=6){
-        if(d.id%3==0){
-          return 1094-300;
-        }else if(d.id==4||d.id==5){
-          return 1094+300;
-        }else{
-          return 1094;
-      }
-    }else if( d.id>6&&d.id<=12){
-        return 594 + 200*(d.id-7);
-      }else if(d.id>12&&d.id<=18){
-        return 594 + 200*(d.id-13);
-      }else if(d.id=19||d.id<=21){
-        return 594;
-      }else if(d.id=20||d.id<=22){
-        return 1594;
-      }else if(d.id>22&&d.id<=32){
-        return 294 + 200*(d.id-23);
-      }else if(d.id>32&&d.id<=42){
-        return 294 + 200*(d.id-33);
-      }
-    }
-
-    function positionY(d){
-      if(d.id<=6){
-        if(d.id%2==1||d.id==1){
-          return 684;
-        }else{
-          return 684+80;
-        }
-      }else if(d.id>6&&d.id<=18){
-        if(d.id<13){
-          return 684-170;
-        }else{
-          return 684+270;
-        }
-      }
-    else if(d.id==19||d.id==20){
-        return 684+30;
-      }
-      else if(d.id==21||d.id==22){
-        return 684+230;
-      }
-      else if(d.id>22&&d.id<=32){
-        return 314;
-      }else if(d.id>32&&d.id<=42){
-          return 1314;
-      }else if(d.id>42&&d.id<=46){
-          return 314+(d.id-42)*200;
-      }else if(d.id>46&&d.id<=50){
-          return 314+(d.id-46)*200;
-      }
-    }
 
 
+    console.log(data);
+    let houses = graphGroup.selectAll(".houses").data(data);
+    let text = graphGroup.selectAll(".username").data(data);
+    let enteringElements=houses.enter();
+    let username = text.enter();
+            enteringElements
+                .append("svg:image")
+                .attr("class","houses")
+                .attr("xlink:href",function(d){
+                  if(d.likes.length>=0&&d.likes.length<20){
+                    return "gifs/h1.gif";
+                  }else if(d.likes.length>=21&&d.likes.length<35){
+                    return "gifs/h2.gif";
+                  }else if(d.likes.length>=36&&d.likes.length<45){
+                    return "gifs/h1.gif";
+                  }else if(d.likes.length>45){
+                    return "gifs/h1.gif";
+                  }
+                })
+              .attr("x", positionX)
+              .attr("y", positionY)
+              .attr("width", size)
+              .attr("height", size);
 
-    let houses = test.append("image")
-          // .attr("class", function(d) { return "bubbles " + d.continent })
-          .attr("xlink:href",function(d){
-            if(d.likes.length>=0&&d.likes.length<20){
-              return "gifs/h1.gif";
-            }else if(d.likes.length>=21&&d.likes.length<35){
-              return "gifs/h2.gif";
-            }else if(d.likes.length>=36&&d.likes.length<45){
-              return "gifs/h1.gif";
-            }else if(d.likes.length>45){
-              return "gifs/h1.gif";
-            }
-
-          })
-          .attr("class","house")
-      ;
-
-        svg.selectAll(".house")
-          .attr("x", positionX)
-          .attr("y", positionY)
-          .attr("width", size)
-          .attr("height", size);
-
-         test
+         username
           .append("text")
+          .attr("class","username")
           .attr("x", function(d){
               if(d.id<=6){
                 if(d.id%3==0){
@@ -162,7 +223,7 @@ function getData(){
          .style("font-size", 24)
          .attr('alignment-baseline', 'middle');
 
-      let level = test.append("image");
+      let level = enteringElements.append("image");
         level.attr("xlink:href","gifs/c2.gif")
           .attr("x",function(d){
             if(d.likes.length>5&&d.likes.length<10){
@@ -198,9 +259,45 @@ function getData(){
             }
           }}});
 
-});
+        enteringElements.append("image")
+            .attr("class","robot")
+            .attr("xlink:href", function(d){
+              if(d.likes.length>0){
+                return "gifs/robdrop.gif";
+              }else{
+                return "gifs/robmove.gif"
+              }
+            })
+            .attr("x", positionLikeX)
+            .attr("y", positionLikeY)
+            .attr("width",150)
+            .attr("height",150)
+           .style('visibility',"visible")
+            .transition()
+            .delay(3000)
+            .duration(1000)
+            .style("visibility","hidden")
+            ;
+
+             enteringElements.exit().remove();
+        // function tmei(){
+        //   // if(svg.childNode=)
+
+        // }
+        //setInterval(tmei,1590);
+
+        //  console.log(svg);
+
+    });
+
 }
+getData();
 
-// getData();
+// function test(){
 
-  setInterval(getData,1000);
+  // console.log(graphGroup);
+// }
+// test();
+//setInterval(test,4000);
+// setInterval(test,1500);
+//setInterval(getData,3000);
