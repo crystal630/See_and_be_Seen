@@ -6,7 +6,7 @@
   ;
 
   svg.append('svg:image')
-    .attr('xlink:href', 'bg.PNG')
+    .attr('xlink:href', 'bg.png')
     .attr("width",2388)
     .attr("height", 1668)
     .attr("x", 0)
