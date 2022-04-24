@@ -193,9 +193,9 @@ function userX(d){
       }else if(d.id>12&&d.id<=18){
         return 594 + 200*(d.id-13)+220;
       }else if(d.id==19||d.id==21){
-        return 714;
+        return 754;
       }else if(d.id==20||d.id==22){
-        return 1714;
+        return 1854;
       }else if(d.id>22&&d.id<=32){
         return 414 + 200*(d.id-23);
       }else if(d.id>32&&d.id<=42){
@@ -217,10 +217,10 @@ function userY(d){
   return 684+280;
   }
   }else if(d.id==19||d.id==20){
-  return 734;
+  return 694;
   }
   else if(d.id==21||d.id==22){
-  return 884;
+  return 844;
   }
   else if(d.id>22&&d.id<=32){
   return 359;
