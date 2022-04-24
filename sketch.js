@@ -50,9 +50,9 @@ function positionX(d){
     return 594 + 200*(d.id-7);
   }else if(d.id>12&&d.id<=18){
     return 594 + 200*(d.id-13);
-  }else if(d.id=19||d.id<=21){
+  }else if(d.id>=19&&d.id<=20){
     return 594;
-  }else if(d.id=20||d.id<=22){
+  }else if(d.id==20||d.id==22){
     return 1594;
   }else if(d.id>22&&d.id<=32){
     return 294 + 200*(d.id-23);
@@ -75,7 +75,7 @@ function positionY(d){
       return 684+270;
     }
   }
-else if(d.id==19||d.id==20){
+else if(d.id>=19&&d.id<=20){
     return 684+30;
   }
   else if(d.id==21||d.id==22){
@@ -106,9 +106,9 @@ function positionLikeX(d){
           return 594 + 200*(d.id-7);
         }else if(d.id>12&&d.id<=18){
           return 594 + 200*(d.id-13);
-        }else if(d.id=19||d.id<=21){
+        }else if(d.id==19||d.id==21){
           return 594;
-        }else if(d.id=20||d.id<=22){
+        }else if(d.id==20||d.id==22){
           return 1594;
         }else if(d.id>22&&d.id<=32){
           return 294 + 200*(d.id-23);
@@ -163,7 +163,7 @@ function getData(){
   d3.json("https://organized-alluring-nerine.glitch.me/posts", function(data) {
 
 
-    console.log(data);
+  //  console.log(data.id);
     let houses = graphGroup.selectAll(".houses").data(data);
     let text = graphGroup.selectAll(".username").data(data);
     let enteringElements=houses.enter();
@@ -203,6 +203,14 @@ function getData(){
                 return 594 + 200*(d.id-7)+120;
               }else if(d.id>12&&d.id<=18){
                 return 594 + 200*(d.id-13)+120;
+              }else if(d.id==19||d.id==21){
+                return 594+120;
+              }else if(d.id==20||d.id==22){
+                return 1594+120;
+              }else if(d.id>22&&d.id<=32){
+                return 294 + 200*(d.id-23)+120;
+              }else if(d.id>32&&d.id<=42){
+                return 294 + 200*(d.id-33)+120;
               }
           })
           .attr("y",function(d){
@@ -218,7 +226,21 @@ function getData(){
           }else{
             return 684+320;
           }
-          }})
+          }else if(d.id==19||d.id==20){
+              return 684+30;
+            }
+            else if(d.id==21||d.id==22){
+              return 684+230;
+            }
+            else if(d.id>22&&d.id<=32){
+              return 314;
+            }else if(d.id>32&&d.id<=42){
+                return 1314;
+            }else if(d.id>42&&d.id<=46){
+                return 314+(d.id-42)*200;
+            }else if(d.id>46&&d.id<=50){
+                return 314+(d.id-46)*200;
+            }})
          .text(function(d){ return d.username})
          .style("font-size", 24)
          .attr('alignment-baseline', 'middle');
