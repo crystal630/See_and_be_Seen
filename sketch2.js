@@ -27,12 +27,7 @@
 
 
 
-  svg.append("image")
-    .attr('xlink:href', 'bg2.gif')
-    .attr("x",0)
-    .attr('y',0)
-    .attr("width",2000)
-    .attr("height",1000);
+
 
 
 function size(d){
@@ -94,7 +89,7 @@ else if(d.id==19||d.id==20){
   else if(d.id>22&&d.id<=32){
     return 314;
   }else if(d.id>32&&d.id<=42){
-      return 1314;
+      return 1064;
   }else if(d.id>42&&d.id<=46){
       return 314+(d.id-42)*200;
   }else if(d.id>46&&d.id<=50){
@@ -213,7 +208,7 @@ function userY(d){
   else if(d.id>22&&d.id<=32){
   return 359;
   }else if(d.id>32&&d.id<=42){
-    return 1314;
+    return 1114;
   }else if(d.id>42&&d.id<=46){
     return 314+(d.id-42)*200;
   }else if(d.id>46&&d.id<=50){
@@ -570,3 +565,9 @@ getData();
 setInterval(refresh,50000);
 
 setInterval(getDataII,3000);
+svg.append("image")
+  .attr('xlink:href', 'bg2.gif')
+  .attr("x",0)
+  .attr('y',100)
+  .attr("width",2000)
+  .attr("height",1000);
