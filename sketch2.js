@@ -62,20 +62,20 @@ function size(d){
 function positionX(d){
   if(d.id<=6){
     if(d.id%3==0){
-      return 1094-300;
+      return 1194-300;
     }else if(d.id==4||d.id==5){
-      return 1094+300;
+      return 1194+300;
     }else{
-      return 1094;
+      return 1194;
   }
 }else if( d.id>6&&d.id<=12){
-    return 594 + 200*(d.id-7);
+    return 694 + 200*(d.id-7);
   }else if(d.id>12&&d.id<=18){
-    return 594 + 200*(d.id-13);
+    return 694 + 200*(d.id-13);
   }else if(d.id==19||d.id==21){
-    return 594;
+    return 644;
   }else if(d.id==20||d.id==22){
-    return 1594;
+    return 1744;
   }else if(d.id>22&&d.id<=32){
     return 294 + 200*(d.id-23);
   }else if(d.id>32&&d.id<=42){
@@ -92,16 +92,16 @@ function positionY(d){
     }
   }else if(d.id>6&&d.id<=18){
     if(d.id<13){
-      return 684-170;
+      return 644-170;
     }else{
-      return 684+270;
+      return 644+270;
     }
   }
 else if(d.id==19||d.id==20){
-    return 684;
+    return 644;
   }
   else if(d.id==21||d.id==22){
-    return 684+150;
+    return 644+150;
   }
   else if(d.id>22&&d.id<=32){
     return 314;
