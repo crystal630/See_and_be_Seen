@@ -13,12 +13,7 @@
     .attr("y", 0);
 
 
-  svg.append("image")
-    .attr('xlink:href', 'gifs/coode.png')
-    .attr("x",500)
-    .attr('y',720)
-    .attr("width",100)
-    .attr("height",100);
+
 
     var svgI = d3.select("#my_dataviz")
       .append("svg")
@@ -27,26 +22,19 @@
       .attr("height", 1600)
     ;
 
-    // svgI.append('svg:image')
-    //   .attr('xlink:href', 'bg.png')
-    //   .attr("width",2388)
-    //   .attr("height", 1668)
-    //   .attr("x", 0)
-    //   .attr("y", 0);
-    //
-    //
-    // svgI.append("image")
-    //   .attr('xlink:href', 'gifs/coode.png')
-    //   .attr("x",500)
-    //   .attr('y',720)
-    //   .attr("width",100)
-    //   .attr("height",100);
 
 
 
-//
-//
-//   })
+
+
+  svg.append("image")
+    .attr('xlink:href', 'bg2.gif')
+    .attr("x",0)
+    .attr('y',0)
+    .attr("width",2000)
+    .attr("height",1000);
+
+
 function size(d){
   if(d.likes.length>=0&&d.likes.length<5){
     return 200+d.likes.length*10
