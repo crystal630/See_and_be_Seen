@@ -1,14 +1,14 @@
   var svg = d3.select("#my_dataviz")
     .append("svg")
     .attr("id","svgO")
-    .attr("width", 2388)
-    .attr("height", 1668)
+    .attr("width", 2560)
+    .attr("height", 1600)
   ;
 
   svg.append('svg:image')
     .attr('xlink:href', 'bg.png')
-    .attr("width",2388)
-    .attr("height", 1668)
+    .attr("width",2560)
+    .attr("height", 1600)
     .attr("x", 0)
     .attr("y", 0);
 
@@ -23,8 +23,8 @@
     var svgI = d3.select("#my_dataviz")
       .append("svg")
       .attr("id","svgI")
-      .attr("width", 2388)
-      .attr("height", 1668)
+      .attr("width", 2560)
+      .attr("height", 1600)
     ;
 
     // svgI.append('svg:image')
@@ -86,9 +86,9 @@ function positionX(d){
 function positionY(d){
   if(d.id<=6){
     if(d.id%2==1||d.id==1){
-      return 684;
+      return 644;
     }else{
-      return 684+80;
+      return 684+40;
     }
   }else if(d.id>6&&d.id<=18){
     if(d.id<13){
