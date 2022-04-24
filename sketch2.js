@@ -6,7 +6,7 @@
   ;
 
   svg.append('svg:image')
-    .attr('xlink:href', 'bg.png')
+    .attr('xlink:href', 'bg.jpg')
     .attr("width",2560)
     .attr("height", 1600)
     .attr("x", 0)
@@ -118,24 +118,24 @@ function positionLikeX(d){
       if(d.likes.length>0){
         if(d.id<=6){
           if(d.id%3==0){
-            return 794;
+            return 894+30;
           }else if(d.id==4||d.id==5){
-            return 1394;
+            return 1494+30;
           }else{
-            return 1094;
+            return 1194+30;
         }
       }else if( d.id>6&&d.id<=12){
-          return 594 + 200*(d.id-7);
+          return 694+30 + 200*(d.id-7);
         }else if(d.id>12&&d.id<=18){
-          return 594 + 200*(d.id-13);
+          return 694+30 + 200*(d.id-13);
         }else if(d.id=19||d.id<=21){
-          return 594;
+          return 694+30;
         }else if(d.id=20||d.id<=22){
-          return 1594;
+          return 1694+30;
         }else if(d.id>22&&d.id<=32){
-          return 294 + 200*(d.id-23);
+          return 394+30 + 200*(d.id-23);
         }else if(d.id>32&&d.id<=42){
-          return 294 + 200*(d.id-33);
+          return 394+30 + 200*(d.id-33);
         }
       }else{
         return 100;
@@ -146,31 +146,31 @@ function positionLikeY(d){
       if(d.likes.length>0){
         if(d.id<=6){
           if(d.id%2==1||d.id==1){
-            return 684;
+            return 584;
           }else{
-            return 684+80;
+            return 584+80;
           }
         }else if(d.id>6&&d.id<=18){
           if(d.id<13){
-            return 684-170;
+            return 584-170;
           }else{
-            return 684+270;
+            return 584+270;
           }
         }
       else if(d.id==19||d.id==20){
-          return 684+30;
+          return 584+30;
         }
         else if(d.id==21||d.id==22){
-          return 684+230;
+          return 584+230;
         }
         else if(d.id>22&&d.id<=32){
-          return 314;
+          return 214;
         }else if(d.id>32&&d.id<=42){
-            return 1314;
+            return 1214;
         }else if(d.id>42&&d.id<=46){
-            return 314+(d.id-42)*200;
+            return 214+(d.id-42)*200;
         }else if(d.id>46&&d.id<=50){
-            return 314+(d.id-46)*200;
+            return 214+(d.id-46)*200;
         }
       }else{
         return 100;
@@ -182,16 +182,16 @@ function userX(d){
 
       if(d.id<=6){
         if(d.id%3==0){
-          return 1094-300+140;
+          return 1094-200+140;
         }else if(d.id==4||d.id==5){
-          return 1094+300+140;
+          return 1094+400+140;
         }else{
-          return 1094+140;
+          return 1094+240;
       }
     }else if( d.id>6&&d.id<=12){
-        return 594 + 200*(d.id-7)+120;
+        return 594 + 200*(d.id-7)+220;
       }else if(d.id>12&&d.id<=18){
-        return 594 + 200*(d.id-13)+120;
+        return 594 + 200*(d.id-13)+220;
       }else if(d.id==19||d.id==21){
         return 714;
       }else if(d.id==20||d.id==22){
@@ -206,15 +206,15 @@ function userX(d){
 function userY(d){
   if(d.id<=6){
   if(d.id%2==1||d.id==1){
-    return 684+60;
+    return 684+100;
   }else{
-  return 684+80+60;
+  return 704;
   }
   }else if( d.id>6&&d.id<=18){
   if(d.id<13){
-  return 684-120;
+  return 684-160;
   }else{
-  return 684+320;
+  return 684+280;
   }
   }else if(d.id==19||d.id==20){
   return 734;
