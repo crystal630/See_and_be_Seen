@@ -165,11 +165,11 @@ function userX(d){
 
       if(d.id<=6){
         if(d.id%3==0){
-          return 1094-200+140;
+          return 1094-200+120;
         }else if(d.id==4||d.id==5){
-          return 1094+400+140;
+          return 1094+400+120;
         }else{
-          return 1094+240;
+          return 1094+210;
       }
     }else if( d.id>6&&d.id<=12){
         return 594 + 200*(d.id-7)+220;
@@ -189,9 +189,9 @@ function userX(d){
 function userY(d){
   if(d.id<=6){
   if(d.id%2==1||d.id==1){
-    return 684+100;
+    return 684+10;
   }else{
-  return 704;
+  return 774;
   }
   }else if( d.id>6&&d.id<=18){
   if(d.id<13){
