@@ -22,7 +22,7 @@
       .attr("height", 1600)
     ;
 
-
+let m,n;
 
 
 
@@ -31,14 +31,38 @@
 
 
 function size(d){
-  if(d.likes.length>=0&&d.likes.length<5){
-    return 200+d.likes.length*10
-  }else if(d.likes.length>=20&&d.likes.length<25){
-    return 200+(d.likes.length-20)*10
-  }else if(d.likes.length>=36&&d.likes.length<38){
-    return 200+(d.likes.length-36)*10
+  if((d.likes.length+d.replies.length)>=0&&(d.likes.length+d.replies.length)<5){
+    return 200+(d.likes.length+d.replies.length)*10;
+  }else if((d.likes.length+d.replies.length)>=20&&(d.likes.length+d.replies.length)<25){
+    return 200+(d.likes.length+d.replies.length)*10;
+  }else if((d.likes.length+d.replies.length)>=36&&(d.likes.length+d.replies.length)<38){
+    return 200+(d.likes.length+d.replies.length)*10;
   }else{
     return 250;
+  }
+}
+
+function sizeL(d){
+  if(d.likes.length>=0&&d.likes.length<11){
+    return 100+d.likes.length*20
+  }else if(d.likes.length>=20&&d.likes.length<25){
+    return 100+(d.likes.length-20)*20
+  }else if(d.likes.length>=36&&d.likes.length<38){
+    return 100+(d.likes.length-36)*20
+  }else{
+    return 150;
+  }
+}
+
+function sizeR(d){
+  if(d.replies.length>=0&&d.replies.length<11){
+    return 100+d.replies.length*40
+  }else if(d.replies.length>=20&&d.replies.length<25){
+    return 100+(d.replies.length-20)*40
+  }else if(d.replies.length>=36&&d.replies.length<38){
+    return 100+(d.replies.length-36)*40
+  }else{
+    return 150;
   }
 }
 
@@ -101,11 +125,11 @@ function positionLikeX(d){
       if(d.likes.length>0){
         if(d.id<=6){
           if(d.id%3==0){
-            return 894+30;
+            return 894+30-d.likes.length*10;
           }else if(d.id==4||d.id==5){
-            return 1494+30;
+            return 1494+30-d.likes.length*10;
           }else{
-            return 1194+30;
+            return 1194+30-d.likes.length*10;
         }
       }else if( d.id>6&&d.id<=12){
           return 694+30 + 200*(d.id-7);
@@ -129,9 +153,9 @@ function positionLikeY(d){
       if(d.likes.length>0){
         if(d.id<=6){
           if(d.id%2==1||d.id==1){
-            return 584;
+            return 584-d.likes.length*10;
           }else{
-            return 584+80;
+            return 584+80-d.likes.length*10;
           }
         }else if(d.id>6&&d.id<=18){
           if(d.id<13){
@@ -161,15 +185,79 @@ function positionLikeY(d){
 
     }
 
+function positionReplyX(d){
+          if(d.replies.length>0){
+            if(d.id<=6){
+              if(d.id%3==0){
+                return 894+100;
+              }else if(d.id==4||d.id==5){
+                return 1494+100;
+              }else{
+                return 1194+100;
+            }
+          }else if( d.id>6&&d.id<=12){
+              return 694+100 + 200*(d.id-7);
+            }else if(d.id>12&&d.id<=18){
+              return 694+100 + 200*(d.id-13);
+            }else if(d.id=19||d.id<=21){
+              return 694+100;
+            }else if(d.id=20||d.id<=22){
+              return 1694+100;
+            }else if(d.id>22&&d.id<=32){
+              return 394+100 + 200*(d.id-23);
+            }else if(d.id>32&&d.id<=42){
+              return 394+100 + 200*(d.id-33);
+            }
+          }else{
+            return 200;
+          }
+        }
+
+function positionReplyY(d){
+          if(d.replies.length>0){
+            if(d.id<=6){
+              if(d.id%2==1||d.id==1){
+                return 584;
+              }else{
+                return 584+80;
+              }
+            }else if(d.id>6&&d.id<=18){
+              if(d.id<13){
+                return 584-170;
+              }else{
+                return 584+270;
+              }
+            }
+          else if(d.id==19||d.id==20){
+              return 584+30;
+            }
+            else if(d.id==21||d.id==22){
+              return 584+230;
+            }
+            else if(d.id>22&&d.id<=32){
+              return 214;
+            }else if(d.id>32&&d.id<=42){
+                return 1214;
+            }else if(d.id>42&&d.id<=46){
+                return 214+(d.id-42)*200;
+            }else if(d.id>46&&d.id<=50){
+                return 214+(d.id-46)*200;
+            }
+          }else{
+            return 100;
+          }
+
+        }
+
 function userX(d){
 
       if(d.id<=6){
         if(d.id%3==0){
-          return 1094-200+120;
+          return 1094-200+130;
         }else if(d.id==4||d.id==5){
-          return 1094+400+120;
+          return 1094+400+130;
         }else{
-          return 1094+210;
+          return 1094+220;
       }
     }else if( d.id>6&&d.id<=12){
         return 594 + 200*(d.id-7)+220;
@@ -216,13 +304,21 @@ function userY(d){
   }
 }
 
+function change(d){
+  if(d.likes.length>0){
+    return "gifs/robdrop.gif";
+  }else{
+    return "gifs/robmove.gif"
+  }
+}
+
+
 
 function getData(){
   var graphGroup = svg.append('g').attr("class","graphGroup");
   d3.json("https://organized-alluring-nerine.glitch.me/posts", function(data) {
 
 
-  // console.log(data);
     let houses = graphGroup.selectAll(".houses").data(data);
     let text = graphGroup.selectAll(".username").data(data);
     let enteringElements=houses.enter();
@@ -303,28 +399,29 @@ function getData(){
             })
             .attr("x", positionLikeX)
             .attr("y", positionLikeY)
-            .attr("width",150)
-            .attr("height",150)
-           .style('visibility',"visible")
-            .transition()
-            .delay(3000)
-            .duration(1000)
-            .style("visibility","hidden")
+            .attr("width",sizeL)
+            .attr("height",sizeL)
             ;
 
-          //  console.log(enteringElements);
+            enteringElements.append("image")
+                .attr("class","robotR")
+                .attr("xlink:href", function(d){
+                  if(d.replies.length>0){
+                    return "gifs/rb.gif";
+                  }else{
+                    return "gifs/rbm.gif"
+                  }
+                })
+                .attr("x", positionReplyX)
+                .attr("y", positionReplyY)
+                .attr("width",sizeR)
+                .attr("height",sizeR)
+                ;
+
 
              enteringElements.exit().remove();
 
-             //console.log("2"+enteringElements);
-        // function tmei(){
-        //   // if(svg.childNode=)
 
-        // }
-        //setInterval(tmei,1590);
-
-        //  console.log(svg);
-      //  console.log(data);
     });
 
     console.log(svgI);
@@ -409,7 +506,7 @@ function getData(){
           enteringElements.append("image")
               .attr("class","robot")
               .attr("xlink:href", function(d){
-                if(d.likes.length>0){
+                  if(d.likes.length>0){
                   return "gifs/robdrop.gif";
                 }else{
                   return "gifs/robmove.gif"
@@ -417,21 +514,30 @@ function getData(){
               })
               .attr("x", positionLikeX)
               .attr("y", positionLikeY)
-              .attr("width",150)
-              .attr("height",150)
-             .style('visibility',"visible")
-              .transition()
-              .delay(3000)
-              .duration(1000)
-              .style("visibility","hidden")
+              .attr("width",sizeL)
+              .attr("height",sizeL)
               ;
 
+              enteringElements.append("image")
+                  .attr("class","robotR")
+                  .attr("xlink:href", function(d){
+                    console.log(d.replies.length);
+                      if(d.replies.length>0){
+                      return "gifs/rb.gif";
+                    }else{
+                      return "gifs/rbm.gif"
+                    }
+                  })
+                  .attr("x", positionReplyX)
+                  .attr("y", positionReplyY)
+                  .attr("width",sizeR)
+                  .attr("height",sizeR)
+                  ;
               // console.log(enteringElements);
 
                enteringElements.exit().remove();
 
                // console.log("2"+enteringElements);
-               console.log(data);
 
       });
 
@@ -447,11 +553,22 @@ function getDataII(){
   var graphGroup = svg.append('g').attr("class","graphGroup");
 
   d3.json("https://organized-alluring-nerine.glitch.me/posts", function(data) {
-  //  console.log(data);
+
     let houses = graphGroup.selectAll(".houses").data(data);
     let text = graphGroup.selectAll(".username").data(data);
     let enteringElements=houses.enter();
     let username = text.enter();
+
+    // for(i=0;i<data.length;i++){
+    //   let n = data[i].likes.length;
+    //   console.log(n);
+    //   if(n+1==true){
+    //     console.log("hh")
+    //   }else{
+    //     console.log("bye")
+    //   }
+    // }
+
 
             enteringElements
                 .append("svg:image")
@@ -520,7 +637,7 @@ function getDataII(){
         enteringElements.append("image")
             .attr("class","robot")
             .attr("xlink:href", function(d){
-              if(d.likes.length>0){
+                if(d.likes.length>0){
                 return "gifs/robdrop.gif";
               }else{
                 return "gifs/robmove.gif"
@@ -528,15 +645,25 @@ function getDataII(){
             })
             .attr("x", positionLikeX)
             .attr("y", positionLikeY)
-            .attr("width",150)
-            .attr("height",150)
-           .style('visibility',"visible")
-            .transition()
-            .delay(3000)
-            .duration(1000)
-            .style("visibility","hidden")
+            .attr("width",sizeL)
+            .attr("height",sizeL)
             ;
 
+            enteringElements.append("image")
+                .attr("class","robotR")
+                .attr("xlink:href", function(d){
+
+                    if(d.replies.length>0){
+                    return "gifs/rb.gif";
+                  }else{
+                    return "gifs/rbm.gif"
+                  }
+                })
+                .attr("x", positionReplyX)
+                .attr("y", positionReplyY)
+                .attr("width",sizeR)
+                .attr("height",sizeR)
+                ;
 
     //console.log(data);
 
