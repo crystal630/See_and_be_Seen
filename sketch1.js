@@ -661,28 +661,8 @@ else if((i+1)>22&&(i+1)<=32){
    return 314+(i-45)*200;
 }
 })
-          .attr("width", function(d){
-          if((d.likes.length+d.replies.length)>=0&&(d.likes.length+d.replies.length)<20){
-            return 200+(d.likes.length+d.replies.length)*10;
-          }else if((d.likes.length+d.replies.length)>=20&&(d.likes.length+d.replies.length)<25){
-            return 200+(d.likes.length+d.replies.length-20)*10;
-          }else if((d.likes.length+d.replies.length)>=36&&(d.likes.length+d.replies.length)<38){
-            return 200+(d.likes.length+d.replies.length-36)*10;
-          }else if((d.likes.length+d.replies.length)>=45){
-            return 250+(d.likes.length+d.replies.length-45)*10;
-          }
-          })
-          .attr("height", function(d){
-          if((d.likes.length+d.replies.length)>=0&&(d.likes.length+d.replies.length)<20){
-            return 200+(d.likes.length+d.replies.length)*10;
-          }else if((d.likes.length+d.replies.length)>=20&&(d.likes.length+d.replies.length)<25){
-            return 200+(d.likes.length+d.replies.length-20)*10;
-          }else if((d.likes.length+d.replies.length)>=36&&(d.likes.length+d.replies.length)<38){
-            return 200+(d.likes.length+d.replies.length-36)*10;
-          }else if((d.likes.length+d.replies.length)>=45){
-            return 250+(d.likes.length+d.replies.length-45)*10;
-          }
-          })
+          .attr("width", size)
+          .attr("height", size)
           ;
           update.text(function(d){return d.likes.length})
             .style("font-size", function(d){return d.likes.length*20} )
