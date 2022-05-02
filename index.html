@@ -2,17 +2,38 @@
 <html lang="en">
   <head>
     <script src="https://d3js.org/d3.v4.js"></script>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2b171deca0.js" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
   </head>
+
   <body>
 
-    <div id="my_dataviz"></div>
+
+
+    <div id="my_dataviz">
+
+
+
+      </div>
+      <div id="insC">
+        <img src="gifs/t2.png" alt="" id="t2">
+        <button id="quit">X</button>
+      </div>
+
 
 </body>
   <script src="sketch1.js"></script>
+  <script type="text/javascript">
+        document.getElementById("quit").onclick = function () {
+        document.getElementById("insC").style.display = 'none';
+        console.log("work");
+      };
+</script>
 <style>
 
 </style>

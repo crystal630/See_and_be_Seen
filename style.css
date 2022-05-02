@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  zoom:91%;
 }
 canvas {
   display: block;
@@ -10,4 +11,46 @@ canvas {
   position:absolute;
   left:0;
   top:0;
+}
+
+#insC {
+  width:1970px;
+  height:300px;
+  position: fixed;
+  top: 0px;
+  left: 300px;
+  background-color: #000000;
+  opacity:0.6;
+  /* width: 450px;
+  height:300px; */
+
+}
+
+#insC:hover{
+  opacity:1;
+  /* width: 450px;
+  height:300px; */
+
+}
+#t2{
+  width:1570px;
+  position:fixed;
+  top:0px;
+  left:360px;
+
+}
+
+
+#quit{
+  width:50px;
+  height:50px;
+  border-radius:25px;
+  position: absolute;
+  top: 50px;
+  left: 1600px;
+  background-color:#f1c184;
+  font-size:24px;
+}
+#quit:hover{
+  background-color:#ffffff;
 }
