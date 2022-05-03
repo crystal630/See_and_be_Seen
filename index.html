@@ -20,6 +20,9 @@
 
 
       </div>
+      <div id="code">
+        <button id="instruction">Instruction</button>
+      </div>
       <div id="insC">
         <img src="gifs/t2.png" alt="" id="t2">
         <button id="quit">X</button>
@@ -29,10 +32,17 @@
 </body>
   <script src="sketch1.js"></script>
   <script type="text/javascript">
+        document.getElementById("code").style.display = "none";
         document.getElementById("quit").onclick = function () {
         document.getElementById("insC").style.display = 'none';
         console.log("work");
+        document.getElementById("code").style.display = "inline";
       };
+      document.getElementById("instruction").onclick = function () {
+      document.getElementById("code").style.display = 'none';
+      console.log("work");
+      document.getElementById("insC").style.display = "inline";
+    };
 </script>
 <style>
 

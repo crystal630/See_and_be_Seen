@@ -1003,7 +1003,7 @@ else if((i+1)>22&&(i+1)<=32){
 
           robotR
               .attr("xlink:href", function(d){
-                console.log(d.replies.length);
+              //  console.log(d.replies.length);
                 if(d.replies.length>0){
                   return "gifs/rb.gif";
                 }else{
