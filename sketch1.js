@@ -93,6 +93,8 @@ function getData(){
       var r1 = robot.enter();
       var robotR = graphGroupI.selectAll(".robotR").data(data);
       var r2 = robotR.enter();
+      var level = graphGroupI.selectAll(".level").data(data);
+      let lev = level.enter();
 
               enteringElements
                .append("svg:image")
@@ -451,6 +453,78 @@ function getData(){
                     })
                     .style("font-size", 24)
                     .attr('alignment-baseline', 'middle');
+
+
+                    lev.append("image")
+                      .attr("class","level")
+                      .attr("xlink:href",function(d){
+                        if((d.likes.length+d.replies.length)>=6&&(d.likes.length+d.replies.length)<20){
+                          return "gifs/p1.gif";
+                        }else if((d.likes.length+d.replies.length)>=26&&(d.likes.length+d.replies.length)<36){
+                          return "gifs/c1.gif";
+                        }else if((d.likes.length+d.replies.length)>=38&&(d.likes.length+d.replies.length)<45){
+                          return "gifs/c2.gif";
+                        }
+                      })
+                      .attr("x", function(d,i){
+                        if((i+1)<=6){
+                          if((i+1)%3==0){
+                            return 1194-300;
+                          }else if((i+1)==4||(i+1)==5){
+                            return 1194+300;
+                          }else{
+                            return 1194;
+                          }
+                        }else if( (i+1)>6&&(i+1)<=12){
+                          return 694 + 200*(i-6);
+                        }else if((i+1)>12&&(i+1)<=18){
+                          return 694 + 200*(i-12);
+                        }else if((i+1)==19||(i+1)==21){
+                          return 644;
+                        }else if((i+1)==20||(i+1)==22){
+                          return 1744;
+                        }else if((i+1)>22&&(i+1)<=32){
+                          return 294 + 200*(i-22);
+                        }else if((i+1)>32&&(i+1)<=42){
+                          return 294 + 200*(i-32);
+                        }
+                      })
+                      .attr("y",function(d,i){
+                        if((i+1)<=6){
+                          if((i+1)%2==1||(i+1)==1){
+                              return 644;
+                            }else{
+                              return 684+40;
+                            }
+                            }else if((i+1)>6&&(i+1)<=18){
+                              if((i+1)<13){
+                                return 644-170;
+                              }else{
+                                return 644+270;
+                              }
+                            }
+                            else if((i+1)==19||(i+1)==20){
+                              return 644;
+                            }
+                            else if((i+1)==21||(i+1)==22){
+                              return 644+150;
+                            }
+                            else if((i+1)>22&&(i+1)<=32){
+                              return 314;
+                            }else if((i+1)>32&&(i+1)<=42){
+                              return 1064;
+                            }else if((i+1)>42&&(i+1)<=46){
+                              return 314+(i-42)*200;
+                            }else if((i+1)>46&&(i+1)<=50){
+                              return 314+(i-45)*200;
+                            }
+                          })
+                          .attr("width",100)
+                          .attr("height",100)
+                        ;
+
+
+
 
                       r1
                           .append("image")
@@ -1080,6 +1154,74 @@ else if((i+1)>22&&(i+1)<=32){
               // .transition()
               // .duration(2000)
               .attr("opacity",opacity2)
+            ;
+
+              level
+                .attr("xlink:href",function(d){
+                  if((d.likes.length+d.replies.length)>=6&&(d.likes.length+d.replies.length)<20){
+                    return "gifs/p1.gif";
+                  }else if((d.likes.length+d.replies.length)>=26&&(d.likes.length+d.replies.length)<36){
+                    return "gifs/c1.gif";
+                  }else if((d.likes.length+d.replies.length)>=38&&(d.likes.length+d.replies.length)<45){
+                    return "gifs/c2.gif";
+                  }
+                })
+                .attr("x", function(d,i){
+                  if((i+1)<=6){
+                    if((i+1)%3==0){
+                      return 1194-300;
+                    }else if((i+1)==4||(i+1)==5){
+                      return 1194+300;
+                    }else{
+                      return 1194;
+                    }
+                  }else if( (i+1)>6&&(i+1)<=12){
+                    return 694 + 200*(i-6);
+                  }else if((i+1)>12&&(i+1)<=18){
+                    return 694 + 200*(i-12);
+                  }else if((i+1)==19||(i+1)==21){
+                    return 644;
+                  }else if((i+1)==20||(i+1)==22){
+                    return 1744;
+                  }else if((i+1)>22&&(i+1)<=32){
+                    return 294 + 200*(i-22);
+                  }else if((i+1)>32&&(i+1)<=42){
+                    return 294 + 200*(i-32);
+                  }
+                })
+                .attr("y",function(d,i){
+                  if((i+1)<=6){
+                    if((i+1)%2==1||(i+1)==1){
+                        return 644;
+                      }else{
+                        return 684+40;
+                      }
+                      }else if((i+1)>6&&(i+1)<=18){
+                        if((i+1)<13){
+                          return 644-170;
+                        }else{
+                          return 644+270;
+                        }
+                      }
+                      else if((i+1)==19||(i+1)==20){
+                        return 644;
+                      }
+                      else if((i+1)==21||(i+1)==22){
+                        return 644+150;
+                      }
+                      else if((i+1)>22&&(i+1)<=32){
+                        return 314;
+                      }else if((i+1)>32&&(i+1)<=42){
+                        return 1064;
+                      }else if((i+1)>42&&(i+1)<=46){
+                        return 314+(i-42)*200;
+                      }else if((i+1)>46&&(i+1)<=50){
+                        return 314+(i-45)*200;
+                      }
+                    })
+                    .attr("width",100)
+                    .attr("height",100)
+                  ;
 
 
 
