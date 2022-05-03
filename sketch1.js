@@ -159,7 +159,7 @@ function getData(){
                .attr("width", size)
                .attr("height", size)
                .transition()
-              .delay(1100)
+              .delay(2000)
               .attr("xlink:href",function(d){
     if((d.likes.length+d.replies.length)>=0&&(d.likes.length+d.replies.length)<20){
       return "gifs/h1_2.gif";
@@ -1242,7 +1242,7 @@ else if((i+1)>22&&(i+1)<=32){
            .attr("width", 200)
            .attr("height", 200)
            .transition()
-          .delay(1100)
+          .delay(2000)
           .attr("xlink:href",'gifs/h1_2.gif')
           .attr("x", function(d,i){
             return 100+(i+1)*100
