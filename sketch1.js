@@ -22,7 +22,6 @@ svg.append('svg:image')
     .attr("height", 1600)
   ;
 
-
 function opacity1(d){
   return 0.1+(d.likes.length)/10;
 }
@@ -129,15 +128,15 @@ function getData(){
                .attr("y", function(d,i){
     if((i+1)<=6){
       if((i+1)%2==1||(i+1)==1){
-        return 644;
+        return 564;
       }else{
-        return 684+40;
+        return 684+120;
       }
     }else if((i+1)>6&&(i+1)<=18){
       if((i+1)<13){
-        return 644-170;
+        return 644-250;
       }else{
-        return 644+270;
+        return 644+350;
       }
     }
     else if((i+1)==19||(i+1)==20){
@@ -147,13 +146,13 @@ function getData(){
       return 644+150;
     }
     else if((i+1)>22&&(i+1)<=32){
-      return 314;
+      return 314-80;
     }else if((i+1)>32&&(i+1)<=42){
-        return 1064;
+        return 1064+80;
     }else if((i+1)>42&&(i+1)<=46){
-        return 314+(i-42)*200;
+        return 114;
     }else if((i+1)>46&&(i+1)<=50){
-        return 314+(i-45)*200;
+        return 1264;
     }
   })
                .attr("width", size)
@@ -197,15 +196,15 @@ function getData(){
               .attr("y", function(d,i){
    if((i+1)<=6){
      if((i+1)%2==1||(i+1)==1){
-       return 644;
+       return 564;
      }else{
-       return 684+40;
+       return 684+120;
      }
    }else if((i+1)>6&&(i+1)<=18){
      if((i+1)<13){
-       return 644-170;
+       return 644-250;
      }else{
-       return 644+270;
+       return 644+350;
      }
    }
    else if((i+1)==19||(i+1)==20){
@@ -215,13 +214,13 @@ function getData(){
      return 644+150;
    }
    else if((i+1)>22&&(i+1)<=32){
-     return 314;
+     return 314-80;
    }else if((i+1)>32&&(i+1)<=42){
-       return 1064;
+       return 1064+80;
    }else if((i+1)>42&&(i+1)<=46){
-       return 314+(i-42)*200;
+       return 114;
    }else if((i+1)>46&&(i+1)<=50){
-       return 314+(i-45)*200;
+       return 1264;
    }
  })
               .attr("width",  size)
@@ -328,15 +327,15 @@ function getData(){
                       if((d.likes.length+d.replies.length)>=0&&(d.likes.length+d.replies.length)<20){
                         if((i+1)<=6){
                         if((i+1)%2==1||(i+1)==1){
-                          return 684;
+                          return 604;
                         }else{
-                        return 764;
+                        return 764+80;
                         }
                       }else if( (i+1)>6&&(i+1)<=18){
                         if((i+1)<13){
-                        return 684-170;
+                        return 684-250;
                         }else{
-                        return 684+270;
+                        return 684+350;
                         }
                       }else if((i+1)==19||(i+1)==20){
                         return 694;
@@ -345,26 +344,26 @@ function getData(){
                         return 844;
                         }
                         else if((i+1)>22&&(i+1)<=32){
-                        return 359;
+                        return 359-80;
                       }else if((i+1)>32&&(i+1)<=42){
-                          return 1114;
+                          return 1114+80;
                         }else if((i+1)>42&&(i+1)<=46){
-                          return 314+((i+1)-42)*200;
-                        }else if((i+1)>46&&(i+1)<=50){
-                          return 314+((i+1)-46)*200;
-                        }
+                              return 154;
+                          }else if((i+1)>46&&(i+1)<=50){
+                              return 1304;
+                          }
                      }else if((d.likes.length+d.replies.length)>=21&&(d.likes.length+d.replies.length)<35){
                        if((i+1)<=6){
                        if((i+1)%2==1||(i+1)==1){
-                         return 684-20;
+                         return 684-100;
                        }else{
-                       return 764-20;
+                       return 764-20+80;
                        }
                      }else if( (i+1)>6&&(i+1)<=18){
                        if((i+1)<13){
-                       return 684-170-20;
+                         return 684-170-20-80;
                        }else{
-                       return 684+270-20;
+                       return 684+270-20+80;
                        }
                      }else if((i+1)==19||(i+1)==20){
                        return 694-20;
@@ -373,26 +372,26 @@ function getData(){
                        return 844-20;
                        }
                        else if((i+1)>22&&(i+1)<=32){
-                       return 359-20;
+                       return 359-20-80;
                      }else if((i+1)>32&&(i+1)<=42){
-                         return 1114-20;
+                         return 1114-2+80;
                        }else if((i+1)>42&&(i+1)<=46){
-                         return 314+((i+1)-42)*200-20;
+                         return 154;
                        }else if((i+1)>46&&(i+1)<=50){
-                         return 314+((i+1)-46)*200-20;
+                         return 1304;
                        }
                      }else if((d.likes.length+d.replies.length)>=35&&(d.likes.length+d.replies.length)<45){
                        if((i+1)<=6){
                        if((i+1)%2==1||(i+1)==1){
-                         return 684;
+                         return 684-70;
                        }else{
-                       return 764;
+                       return 764+70;
                        }
                      }else if( (i+1)>6&&(i+1)<=18){
                        if((i+1)<13){
-                       return 684-170;
+                       return 684-170-70;
                        }else{
-                       return 684+270;
+                       return 684+270+70;
                        }
                      }else if((i+1)==19||(i+1)==20){
                        return 694;
@@ -401,41 +400,41 @@ function getData(){
                        return 844;
                        }
                        else if((i+1)>22&&(i+1)<=32){
-                       return 359;
+                       return 359-70;
                      }else if((i+1)>32&&(i+1)<=42){
-                         return 1114;
+                         return 1114+70;
                        }else if((i+1)>42&&(i+1)<=46){
-                         return 314+((i+1)-42)*200;
+                         return 154;
                        }else if((i+1)>46&&(i+1)<=50){
-                         return 314+((i+1)-46)*200;
+                         return 1304;
                        }
                      }else if((d.likes.length+d.replies.length)>=45){
                        if((i+1)<=6){
                        if((i+1)%2==1||(i+1)==1){
-                         return 684-10;
+                         return 684-80;
                        }else{
-                       return 764-10;
+                       return 764+80;
                        }
                      }else if( (i+1)>6&&(i+1)<=18){
                        if((i+1)<13){
-                       return 684-170-10;
+                       return 684-170-80;
                        }else{
-                       return 684+270-10;
+                       return 684+270+80;
                        }
                      }else if((i+1)==19||(i+1)==20){
-                       return 694-10;
+                       return 684;
                        }
                        else if((i+1)==21||(i+1)==22){
-                       return 844-10;
+                       return 834;
                        }
                        else if((i+1)>22&&(i+1)<=32){
-                       return 359-10;
+                       return 359-80;
                      }else if((i+1)>32&&(i+1)<=42){
-                         return 1114-10;
+                         return 1114+80;
                        }else if((i+1)>42&&(i+1)<=46){
-                         return 314+((i+1)-42)*200-10;
+                         return 154;
                        }else if((i+1)>46&&(i+1)<=50){
-                         return 314+((i+1)-46)*200-10;
+                         return 1304;
                        }
                      }
                      })
@@ -451,7 +450,7 @@ function getData(){
                         let n = m.substring(0,6);return n;
                       }
                     })
-                    .style("font-size", 24)
+                    .style("font-size", 20)
                     .attr('alignment-baseline', 'middle');
 
 
@@ -489,36 +488,36 @@ function getData(){
                           return 294 + 200*(i-32);
                         }
                       })
-                      .attr("y",function(d,i){
-                        if((i+1)<=6){
-                          if((i+1)%2==1||(i+1)==1){
-                              return 644;
-                            }else{
-                              return 684+40;
-                            }
-                            }else if((i+1)>6&&(i+1)<=18){
-                              if((i+1)<13){
-                                return 644-170;
-                              }else{
-                                return 644+270;
-                              }
-                            }
-                            else if((i+1)==19||(i+1)==20){
-                              return 644;
-                            }
-                            else if((i+1)==21||(i+1)==22){
-                              return 644+150;
-                            }
-                            else if((i+1)>22&&(i+1)<=32){
-                              return 314;
-                            }else if((i+1)>32&&(i+1)<=42){
-                              return 1064;
-                            }else if((i+1)>42&&(i+1)<=46){
-                              return 314+(i-42)*200;
-                            }else if((i+1)>46&&(i+1)<=50){
-                              return 314+(i-45)*200;
-                            }
-                          })
+                      .attr("y", function(d,i){
+           if((i+1)<=6){
+             if((i+1)%2==1||(i+1)==1){
+               return 564+50;
+             }else{
+               return 684+120+50;
+             }
+           }else if((i+1)>6&&(i+1)<=18){
+             if((i+1)<13){
+               return 644-250+50;
+             }else{
+               return 644+350+50;
+             }
+           }
+           else if((i+1)==19||(i+1)==20){
+             return 644+50;
+           }
+           else if((i+1)==21||(i+1)==22){
+             return 644+150+50;
+           }
+           else if((i+1)>22&&(i+1)<=32){
+             return 314-80+50;
+           }else if((i+1)>32&&(i+1)<=42){
+               return 1064+80+50;
+           }else if((i+1)>42&&(i+1)<=46){
+               return 114+50;
+           }else if((i+1)>46&&(i+1)<=50){
+               return 1264+50;
+           }
+         })
                           .attr("width",100)
                           .attr("height",100)
                         ;
@@ -567,15 +566,15 @@ function getData(){
                             if(d.likes.length>0){
                               if((i+1)<=6){
                                 if((i+1)%2==1||(i+1)==1){
-                                    return 594;
+                                    return 594-80;
                                 }else{
-                                  return 724;
+                                  return 724+80;
                                 }
                               }else if((i+1)>6&&(i+1)<=18){
                                 if((i+1)<13){
-                                  return 584-170;
+                                  return 584-170-80;
                                 }else{
-                                  return 584+270;
+                                  return 584+270+80;
                                 }
                               }
                               else if((i+1)==19||(i+1)==20){
@@ -585,13 +584,13 @@ function getData(){
                                 return 584+230;
                               }
                               else if((i+1)>22&&(i+1)<=32){
-                                return 214;
+                                return 214-80;
                               }else if((i+1)>32&&(i+1)<=42){
-                                  return 1214;
+                                  return 1214+80;
                               }else if((i+1)>42&&(i+1)<=46){
-                                    return 214+(i-41)*200;
+                                    return 124;
                               }else if((i+1)>46&&(i+1)<=50){
-                                    return 214+(i-45)*200;
+                                    return 1304;
                               }
                             }else{
                               return 200;
@@ -645,36 +644,35 @@ function getData(){
                           }
                         })
                         .attr("y", function(d,i){
-                          if(d.replies.length>0){
+                          if(d.likes.length>0){
                             if((i+1)<=6){
                               if((i+1)%2==1||(i+1)==1){
-                                return 594;
+                                  return 594-80;
                               }else{
-                                return 724;
+                                return 724+80;
                               }
                             }else if((i+1)>6&&(i+1)<=18){
                               if((i+1)<13){
-                                return 584-170;
+                                return 584-170-80;
                               }else{
-                                return 584+270;
+                                return 584+270+80;
                               }
                             }
                             else if((i+1)==19||(i+1)==20){
-                              return 584+30;
+                            return 584+30;
                             }
                             else if((i+1)==21||(i+1)==22){
                               return 584+230;
                             }
                             else if((i+1)>22&&(i+1)<=32){
-                              return 214;
+                              return 214-80;
                             }else if((i+1)>32&&(i+1)<=42){
-                              return 1214;
+                                return 1214+80;
                             }else if((i+1)>42&&(i+1)<=46){
-                              return 214+(i-41)*200;
+                                  return 124;
                             }else if((i+1)>46&&(i+1)<=50){
-                              return 214+(i-45)*200;
+                                  return 1304;
                             }
-
                           }else{
                             return 200;
                           }
@@ -703,6 +701,7 @@ function getData(){
                     //  console.log(testData)
                     }
                       if(testData==true){
+
 
           update
           .attr("xlink:href",function(d){
@@ -742,31 +741,31 @@ if((i+1)<=6){
           .attr("y", function(d,i){
 if((i+1)<=6){
  if((i+1)%2==1||(i+1)==1){
-   return 644;
+   return 564;
  }else{
-   return 684+40;
+   return 684+120;
  }
 }else if((i+1)>6&&(i+1)<=18){
- if((i+1)<13){
-   return 644-170;
- }else{
-   return 644+270;
- }
+  if((i+1)<13){
+    return 644-250;
+  }else{
+    return 644+350;
+  }
 }
 else if((i+1)==19||(i+1)==20){
- return 644;
+  return 644;
 }
 else if((i+1)==21||(i+1)==22){
- return 644+150;
+  return 644+150;
 }
 else if((i+1)>22&&(i+1)<=32){
- return 314;
+  return 314-80;
 }else if((i+1)>32&&(i+1)<=42){
-   return 1064;
+    return 1064+80;
 }else if((i+1)>42&&(i+1)<=46){
-   return 314+(i-42)*200;
+    return 114;
 }else if((i+1)>46&&(i+1)<=50){
-   return 314+(i-45)*200;
+    return 1264;
 }
 })
           .attr("width", size)
@@ -873,43 +872,43 @@ else if((i+1)>22&&(i+1)<=32){
             if((d.likes.length+d.replies.length)>=0&&(d.likes.length+d.replies.length)<20){
               if((i+1)<=6){
               if((i+1)%2==1||(i+1)==1){
-                return 684;
+                return 604;
               }else{
-              return 764;
+              return 764+80;
               }
             }else if( (i+1)>6&&(i+1)<=18){
               if((i+1)<13){
-              return 684-170;
+              return 684-250;
               }else{
-              return 684+270;
+              return 684+350;
               }
             }else if((i+1)==19||(i+1)==20){
-              return 694;
+              return 684;
               }
               else if((i+1)==21||(i+1)==22){
-              return 844;
+              return 834;
               }
               else if((i+1)>22&&(i+1)<=32){
-              return 359;
+              return 359-80;
             }else if((i+1)>32&&(i+1)<=42){
-                return 1114;
+                return 1114+80;
               }else if((i+1)>42&&(i+1)<=46){
-                return 314+((i+1)-42)*200;
-              }else if((i+1)>46&&(i+1)<=50){
-                return 314+((i+1)-46)*200;
-              }
+                    return 154;
+                }else if((i+1)>46&&(i+1)<=50){
+                    return 1304;
+                }
            }else if((d.likes.length+d.replies.length)>=21&&(d.likes.length+d.replies.length)<35){
              if((i+1)<=6){
              if((i+1)%2==1||(i+1)==1){
-               return 684-20;
+               return 684-100;
              }else{
-             return 764-20;
+             return 764-20+80;
              }
            }else if( (i+1)>6&&(i+1)<=18){
              if((i+1)<13){
-             return 684-170-20;
+               return 684-170-20-80;
              }else{
-             return 684+270-20;
+             return 684+270-20+80;
              }
            }else if((i+1)==19||(i+1)==20){
              return 694-20;
@@ -918,26 +917,26 @@ else if((i+1)>22&&(i+1)<=32){
              return 844-20;
              }
              else if((i+1)>22&&(i+1)<=32){
-             return 359-20;
+             return 359-20-80;
            }else if((i+1)>32&&(i+1)<=42){
-               return 1114-20;
+               return 1114-2+80;
              }else if((i+1)>42&&(i+1)<=46){
-               return 314+((i+1)-42)*200-20;
+               return 154;
              }else if((i+1)>46&&(i+1)<=50){
-               return 314+((i+1)-46)*200-20;
+               return 1304;
              }
            }else if((d.likes.length+d.replies.length)>=35&&(d.likes.length+d.replies.length)<45){
              if((i+1)<=6){
              if((i+1)%2==1||(i+1)==1){
-               return 684;
+               return 684-70;
              }else{
-             return 764;
+             return 764+70;
              }
            }else if( (i+1)>6&&(i+1)<=18){
              if((i+1)<13){
-             return 684-170;
+             return 684-170-70;
              }else{
-             return 684+270;
+             return 684+270+70;
              }
            }else if((i+1)==19||(i+1)==20){
              return 694;
@@ -946,41 +945,41 @@ else if((i+1)>22&&(i+1)<=32){
              return 844;
              }
              else if((i+1)>22&&(i+1)<=32){
-             return 359;
+             return 359-70;
            }else if((i+1)>32&&(i+1)<=42){
-               return 1114;
+               return 1114+70;
              }else if((i+1)>42&&(i+1)<=46){
-               return 314+((i+1)-42)*200;
+               return 154;
              }else if((i+1)>46&&(i+1)<=50){
-               return 314+((i+1)-46)*200;
+               return 1304;
              }
            }else if((d.likes.length+d.replies.length)>=45){
              if((i+1)<=6){
              if((i+1)%2==1||(i+1)==1){
-               return 684-10;
+               return 684-80;
              }else{
-             return 764-10;
+             return 764+80;
              }
            }else if( (i+1)>6&&(i+1)<=18){
              if((i+1)<13){
-             return 684-170-10;
+             return 684-170-80;
              }else{
-             return 684+270-10;
+             return 684+270+80;
              }
            }else if((i+1)==19||(i+1)==20){
-             return 694-10;
+             return 694;
              }
              else if((i+1)==21||(i+1)==22){
-             return 844-10;
+             return 844;
              }
              else if((i+1)>22&&(i+1)<=32){
-             return 359-10;
+             return 359-80;
            }else if((i+1)>32&&(i+1)<=42){
-               return 1114-10;
+               return 1114+80;
              }else if((i+1)>42&&(i+1)<=46){
-               return 314+((i+1)-42)*200-10;
+               return 154;
              }else if((i+1)>46&&(i+1)<=50){
-               return 314+((i+1)-46)*200-10;
+               return 1304;
              }
            }
            })
@@ -1036,15 +1035,15 @@ else if((i+1)>22&&(i+1)<=32){
                   if(d.likes.length>0){
                     if((i+1)<=6){
                       if((i+1)%2==1||(i+1)==1){
-                          return 594;
+                          return 594-80;
                       }else{
-                        return 724;
+                        return 724+80;
                       }
                     }else if((i+1)>6&&(i+1)<=18){
                       if((i+1)<13){
-                        return 584-170;
+                        return 584-170-80;
                       }else{
-                        return 584+270;
+                        return 584+270+80;
                       }
                     }
                     else if((i+1)==19||(i+1)==20){
@@ -1054,13 +1053,13 @@ else if((i+1)>22&&(i+1)<=32){
                       return 584+230;
                     }
                     else if((i+1)>22&&(i+1)<=32){
-                      return 214;
+                      return 214-80;
                     }else if((i+1)>32&&(i+1)<=42){
-                        return 1214;
+                        return 1214+80;
                     }else if((i+1)>42&&(i+1)<=46){
-                          return 214+(i-41)*200;
+                          return 124;
                     }else if((i+1)>46&&(i+1)<=50){
-                          return 214+(i-45)*200;
+                          return 1304;
                     }
                   }else{
                     return 200;
@@ -1113,40 +1112,38 @@ else if((i+1)>22&&(i+1)<=32){
                 }
               })
               .attr("y", function(d,i){
-                if(d.replies.length>0){
+                if(d.likes.length>0){
                   if((i+1)<=6){
                     if((i+1)%2==1||(i+1)==1){
-                      return 594;
+                        return 594-80;
                     }else{
-                      return 724;
+                      return 724+80;
                     }
                   }else if((i+1)>6&&(i+1)<=18){
                     if((i+1)<13){
-                      return 584-170;
+                      return 584-170-80;
                     }else{
-                      return 584+270;
+                      return 584+270+80;
                     }
                   }
                   else if((i+1)==19||(i+1)==20){
-                    return 584+30;
+                  return 584+30;
                   }
                   else if((i+1)==21||(i+1)==22){
                     return 584+230;
                   }
                   else if((i+1)>22&&(i+1)<=32){
-                    return 214;
+                    return 214-80;
                   }else if((i+1)>32&&(i+1)<=42){
-                    return 1214;
+                      return 1214+80;
                   }else if((i+1)>42&&(i+1)<=46){
-                    return 214+(i-41)*200;
+                        return 124;
                   }else if((i+1)>46&&(i+1)<=50){
-                    return 214+(i-45)*200;
+                        return 1304;
                   }
-
                 }else{
                   return 200;
                 }
-
               })
               .attr("width",sizeR)
               .attr("height",sizeR)
@@ -1189,36 +1186,36 @@ else if((i+1)>22&&(i+1)<=32){
                     return 294 + 200*(i-32);
                   }
                 })
-                .attr("y",function(d,i){
-                  if((i+1)<=6){
-                    if((i+1)%2==1||(i+1)==1){
-                        return 644;
-                      }else{
-                        return 684+40;
-                      }
-                      }else if((i+1)>6&&(i+1)<=18){
-                        if((i+1)<13){
-                          return 644-170;
-                        }else{
-                          return 644+270;
-                        }
-                      }
-                      else if((i+1)==19||(i+1)==20){
-                        return 644;
-                      }
-                      else if((i+1)==21||(i+1)==22){
-                        return 644+150;
-                      }
-                      else if((i+1)>22&&(i+1)<=32){
-                        return 314;
-                      }else if((i+1)>32&&(i+1)<=42){
-                        return 1064;
-                      }else if((i+1)>42&&(i+1)<=46){
-                        return 314+(i-42)*200;
-                      }else if((i+1)>46&&(i+1)<=50){
-                        return 314+(i-45)*200;
-                      }
-                    })
+                .attr("y", function(d,i){
+     if((i+1)<=6){
+       if((i+1)%2==1||(i+1)==1){
+         return 564+50;
+       }else{
+         return 684+120+50;
+       }
+     }else if((i+1)>6&&(i+1)<=18){
+       if((i+1)<13){
+         return 644-250+50;
+       }else{
+         return 644+350+50;
+       }
+     }
+     else if((i+1)==19||(i+1)==20){
+       return 644+50;
+     }
+     else if((i+1)==21||(i+1)==22){
+       return 644+150+50;
+     }
+     else if((i+1)>22&&(i+1)<=32){
+       return 314-80+50;
+     }else if((i+1)>32&&(i+1)<=42){
+         return 1064+80+50;
+     }else if((i+1)>42&&(i+1)<=46){
+         return 114+50;
+     }else if((i+1)>46&&(i+1)<=50){
+         return 1264+50;
+     }
+   })
                     .attr("width",100)
                     .attr("height",100)
                   ;
@@ -1228,6 +1225,7 @@ else if((i+1)>22&&(i+1)<=32){
 
         //  console.log(graphGroupI);
       }else{
+
 
 
         enteringElements
@@ -1430,6 +1428,8 @@ else if((i+1)>22&&(i+1)<=32){
 
                                       ;
 
+                                      console.log("xiang")
+
        console.log("enter222",enteringElements);
        console.log(houses);
       }
@@ -1445,5 +1445,5 @@ console.log("hiii")
 window.location.reload();
 }
 //getData();
-setInterval(getData,3000);
-setInterval(refresh,50000);
+setInterval(getData,1000);
+//setInterval(refresh,50000);
