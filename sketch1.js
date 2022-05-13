@@ -445,9 +445,9 @@ function getData(){
                       }else if((d.likes.length+d.replies.length)>=21&&(d.likes.length+d.replies.length)<35){
                       let n = m.substring(0,10);return n;
                       }else if((d.likes.length+d.replies.length)>=36&&(d.likes.length+d.replies.length)<45){
-                      let n = m.substring(0,16);return n;
+                      let n = m.substring(0,28);return n;
                     }else if((d.likes.length+d.replies.length)>45){
-                        let n = m.substring(0,6);return n;
+                        let n = m.substring(0,30);return n;
                       }
                     })
                     .style("font-size", 20)
@@ -990,9 +990,9 @@ else if((i+1)>22&&(i+1)<=32){
             }else if((d.likes.length+d.replies.length)>=21&&(d.likes.length+d.replies.length)<35){
             let n = m.substring(0,10);return n;
             }else if((d.likes.length+d.replies.length)>=36&&(d.likes.length+d.replies.length)<45){
-            let n = m.substring(0,16);return n;
+            let n = m.substring(0,28);return n;
           }else if((d.likes.length+d.replies.length)>45){
-              let n = m.substring(0,6);return n;
+              let n = m.substring(0,35);return n;
             }
           })
 

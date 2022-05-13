@@ -14,16 +14,15 @@ canvas {
 }
 
 #insC {
-  width:1970px;
-  height:300px;
+  width:1280px;
+  height:800px;
   position: fixed;
-  top: 0px;
-  left: 300px;
+  top: calc(25%);
+  left: calc(25%);
   background-color: #000000;
   opacity:0.6;
   /* width: 450px;
   height:300px; */
-
 }
 
 #insC:hover{
@@ -33,12 +32,11 @@ canvas {
 
 }
 #t2{
-  width:1570px;
+  width:1280px;
 
   position:fixed;
-  top:0px;
-  left:360px;
-
+  top: calc(25%);
+  left: calc(25%);
 }
 
 
@@ -47,8 +45,8 @@ canvas {
   height:50px;
   border-radius:25px;
   position: absolute;
-  top: 50px;
-  left: 1600px;
+  top: calc(8%);
+  left: calc(85%);
   background-color:#f1c184;
   font-size:24px;
 }
